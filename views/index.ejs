@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="main.css" />
+    <title>Todo List</title>
+  </head>
+  <body>
+    <header class="main-header">
+      <h1 class="logo"><a href="/">Todo List</a></h1>
+      <h2 class="add-todo"><a href="/add-todo">Add Todo</a></h2>
+    </header>
+    <main class="main">
+      <section class="pagination">
+        <% if(currentPage !== 1) { %>
+          <a href="/?page=1">1</a>
+          <% } %>
+          <a href="/?page=<%= currentPage %>" class="active"><%= currentPage %></a>
+          <% if(hasNextPage) { %> 
+            <a href="/?page=<%= nextPage %>"><%= nextPage %></a>
+          
+            <% } %>
+            <% if(lastPage !== currentPage && lastPage !== nextPage) { %>
+            <a href="/?page=<%= lastPage %>"><%= lastPage %></a>
+            <% } %>  
+        </section>
+      <section>
+        <% if(todos.length > 0) { %>
+          <% for(let todo of todos) { %>
+        <ul class="all-todos">
+          <div class="li">
+          <li class="all-todos__todo-title"><%= todo.title %></li>
+          <li class="all-todos__todo-body"><%= todo.body %></li>  
+        </div>
+          <div class="edit-delete-div">
+            <a href="" class="edit edit-delete">Edit</a>    
+            <a href="" class="delete edit-delete">Delete</a>  
+          </div>   
+        </ul>
+        <% } %>
+        <% } else { %>
+          <h1>No Todos Found</h1>
+          <% } %>
+      </section>
+    </main>
+  </body>
+</html>
