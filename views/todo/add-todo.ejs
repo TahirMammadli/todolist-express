@@ -10,6 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="general.css">
+
     <link rel="stylesheet" href="add-todo.css" />
     <title>Document</title>
   </head>
@@ -22,12 +24,12 @@
       <section class="form">
         <form class="add-todo__form" action="/add-todo" method="POST">
           <div class="form-input">
-            <input type="text" name="title" value=""/>
+            <input type="text" name="title" />
           </div>
           <div class="form-textarea">
             <textarea name="body" id="" cols="30" rows="10"></textarea>
           </div>
-          <div class="add-todo__btn-div"><button class="add-todo__btn" type="submit">Add Todo</button></div>
+          <div class="add-todo__btn-div"><button class="button" type="submit">Add Todo</button></div>
         </form>
       </section>
     </main>

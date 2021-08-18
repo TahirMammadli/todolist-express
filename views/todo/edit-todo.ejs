@@ -10,24 +10,26 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="general.css">
+
     <link rel="stylesheet" href="add-todo.css" />
     <title>Document</title>
   </head>
   <body>
     <header class="main-header">
       <h1 class="logo"><a href="/">Todo List</a></h1>
-      <h2 class="add-todo"><a href="/add-todo">Add Todo</a></h2>
+      <h2 class="add-todo"><a href="/edit-todo">Add Todo</a></h2>
     </header>
     <main class="main-add-todo">
       <section class="form">
-        <form class="add-todo__form" action="/add-todo" method="POST">
+        <form class="add-todo__form" action="/edit-todo/<%= todo._id %>" method="POST">
           <div class="form-input">
-            <input type="text" name="title" />
+            <input type="text" name="title" value="<%= todo.title %>"/>
           </div>
           <div class="form-textarea">
-            <textarea name="body" id="" cols="30" rows="10"></textarea>
+            <textarea name="body" id="" cols="30" rows="10"><%= todo.body %></textarea>
           </div>
-          <div class="add-todo__btn-div"><button class="add-todo__btn" type="submit">Add Todo</button></div>
+          <div class="add-todo__btn-div"><button class="button" type="submit">Add Todo</button></div>
         </form>
       </section>
     </main>

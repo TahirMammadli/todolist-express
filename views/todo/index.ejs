@@ -10,27 +10,36 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="general.css" />
+
     <link rel="stylesheet" href="main.css" />
     <title>Todo List</title>
   </head>
   <body>
     <header class="main-header">
       <h1 class="logo"><a href="/">Todo List</a></h1>
-      <h2 class="add-todo"><a href="/add-todo">Add Todo</a></h2>
+      <button class="navigation-button"><a href="/add-todo">Add Todo</a></button>
+      <section class="login-signup-btn">
+        <button class="navigation-button login-btn"><a href="/login">Login</a></button>
+        <button class="navigation-button signup-btn"><a href="/signup">Sign Up</a></button>
+      </section>
     </header>
     <main class="main">
       <section class="pagination">
-        <% if(currentPage !== 1) { %>
+          <% if(currentPage !== 1) { %>
           <a href="/?page=1">1</a>
           <% } %>
           <a href="/?page=<%= currentPage %>" class="active"><%= currentPage %></a>
-          <% if(hasNextPage) { %> 
-            <a href="/?page=<%= nextPage %>"><%= nextPage %></a>
-          
+          <% if(hasPreviousPage) { %> 
+            <a href="/?page=<%= previousPage %>"><%= previousPage %></a>          
             <% } %>
-            <% if(lastPage !== currentPage && lastPage !== nextPage) { %>
+          <% if(hasNextPage) { %> 
+            <a href="/?page=<%= nextPage %>"><%= nextPage %></a>          
+            <% } %>
+        
+          <% if(lastPage !== currentPage && nextPage !== lastPage) { %>
             <a href="/?page=<%= lastPage %>"><%= lastPage %></a>
-            <% } %>  
+          <% } %>           
         </section>
       <section>
         <% if(todos.length > 0) { %>
@@ -41,14 +50,17 @@
           <li class="all-todos__todo-body"><%= todo.body %></li>  
         </div>
           <div class="edit-delete-div">
-            <a href="" class="edit edit-delete">Edit</a>    
-            <a href="" class="delete edit-delete">Delete</a>  
+            <button class="button edit-btn" style="width: 80px;"><a style="color: white;" href="/edit-todo/<%= todo._id %>" >Edit</a></button>    
+            <form action="/delete/<%= todo._id %>" method="POST" class="delete-btn">
+              <button type="submit delete-btn" class="button" style="width: 80px;">Delete</button>
+            </form>
           </div>   
         </ul>
         <% } %>
         <% } else { %>
           <h1>No Todos Found</h1>
           <% } %>
+          
       </section>
     </main>
   </body>

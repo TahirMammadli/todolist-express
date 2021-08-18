@@ -11,7 +11,7 @@ exports.getTodos = (req, res, next) => {
       .skip((page - 1) * TODO_PER_PAGE)
       .limit(TODO_PER_PAGE)
       .then((todos) => {
-        res.render("index", {
+        res.render("todo/index", {
           todos: todos,
           currentPage: page,
           hasNextPage: TODO_PER_PAGE * page < totalTodos,
@@ -19,13 +19,14 @@ exports.getTodos = (req, res, next) => {
           nextPage: page + 1,
           previousPage: page - 1,
           lastPage: Math.ceil(totalTodos / TODO_PER_PAGE),
+          hasLastPage: Math.ceil(totalTodos / TODO_PER_PAGE) > 0
         });
       });
   });
 };
 
 exports.getAddTodo = (req, res, next) => {
-  res.render("add-todo");
+  res.render("todo/add-todo");
 };
 
 exports.postTodo = (req, res, next) => {
@@ -43,3 +44,38 @@ exports.postTodo = (req, res, next) => {
     .catch((err) => console.log(err));
   res.redirect("/");
 };
+
+
+exports.editTodo = (req,res,next) => {
+  const todoId = req.params.todoId
+  Todo.findById(todoId).then(todo => {
+    res.render('todo/edit-todo', {
+      todo: todo
+    })
+  })
+  .catch(err => console.log(err))
+  
+}
+
+exports.postEditTodo = (req,res,next) => {
+  const todoId = req.params.todoId
+  const updatedTitle = req.body.title 
+  const updatedBody = req.body.body 
+  
+  Todo.findById(todoId).then(todo => {
+    todo.title = updatedTitle
+    todo.body = updatedBody
+
+    return todo.save().then(result => {
+      res.redirect('/')
+    })
+    .catch(err => console.log(err))
+  })
+}
+
+exports.deleteTodo = (req,res,next) => {
+  const todoId = req.params.todoId
+  Todo.findByIdAndRemove(todoId).then(result => {
+    res.redirect('/')
+  }).catch(err => console.log(err))
+}

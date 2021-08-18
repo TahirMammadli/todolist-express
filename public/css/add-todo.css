@@ -1,5 +1,5 @@
-body {
-  font-family: "Montserrat", "sans-serif";
+body{
+  
 }
 .main-header {
   margin-top: 30px;
@@ -19,30 +19,9 @@ body {
   color: rgb(184, 0, 159);
 }
 
-.form {
-  margin-top: 60px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 25%;
-}
 
-.add-todo__form {
-  text-align: left;
-}
 
-input {
-  border: 3px solid darkmagenta;
-  border-radius: 5px;
-  padding: 10px;
-  width: 400px;
-  margin: 20px 0;
-  font-size: 20px;
-}
 
-input:focus {
-  outline: none;
-  border-color: rgb(171, 3, 255);
-}
 
 textarea {
   padding: 10px;
@@ -57,25 +36,13 @@ textarea:focus {
   outline: none;
   border-color: rgb(171, 3, 255);
 }
-.add-todo__btn {
-  padding: 10px;
-  border-radius: 5px;
-  width: 150px;
-  margin: 20px 0;
-  border: none;
-  background-color: darkmagenta;
-  color: white;
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
-}
+
 
 .add-todo__btn-div {
   text-align: right;
 }
 
-.add-todo__btn:hover {
-  background-color: rgb(187, 2, 187);
-  color: white;
-}
+
 
 .add-todo a {
   padding: 10px;

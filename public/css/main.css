@@ -1,23 +1,8 @@
-body {
-  font-family: "Montserrat", "sans-serif";
-}
-.main-header {
-  text-align: center;
-  margin-top: 30px;
-}
-.logo {
-  text-align: center;
-  display: inline;
-  margin: 0 30px;
-  color: darkmagenta;
-}
 
-.add-todo {
-  text-align: center;
-  display: inline;
-  margin: 0 30px;
-  color: rgb(184, 0, 159);
-}
+
+
+
+
 
 .pagination {
   text-align: center;
@@ -51,7 +36,7 @@ body {
 }
 
 .all-todos__todo-title {
-  font-size: 30px;
+  font-size: 35px;
   font-weight: bold;
   margin: 10px 0;
   color: darkmagenta;
@@ -60,6 +45,7 @@ body {
 .all-todos__todo-body {
   color: rgb(170, 2, 170);
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 28px;
 }
 
 .add-todo a {
@@ -73,12 +59,7 @@ a:visited {
   text-decoration: none;
 }
 
-.add-todo a:hover {
-  text-decoration: none;
-  background-color: darkmagenta;
-  color: white;
-  border-radius: 5px;
-}
+
 
 a:active {
   color: darkviolet;
@@ -101,7 +82,59 @@ a:active {
 }
 
 .edit-delete:hover,
-.edit-delete:active{
+.edit-delete:active {
   background-color: darkmagenta;
   color: white;
+}
+
+.login-signup-btn {
+  position: fixed;
+  top: 10px;
+  right: 30px;
+}
+
+.login-btn {
+  display: inline-block;
+  margin-right: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.signup-btn {
+  display: inline-block;
+  
+}
+.login-btn a{
+  color: darkmagenta;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.signup-btn a{
+  color: darkmagenta;
+
+  padding: 10px;
+  border-radius: 5px;
+}
+
+
+.login-btn  a:hover,
+.login-btn  a:active{
+  background-color: darkmagenta;
+  color: white;
+}
+
+.signup-btn  a:hover,
+.signup-btn  a:active{
+  background-color: darkmagenta;
+  color: white;
+}
+
+
+.edit-btn{
+  display: inline-block;
+}
+
+.delete-btn{
+  display: inline-block;
 }
