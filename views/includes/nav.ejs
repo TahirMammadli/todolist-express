@@ -1,0 +1,10 @@
+<header class="main-header">
+    <h1 class="logo"><a href="/">Todo List</a></h1>
+    <% if(isLoggedIn) { %> 
+    <button class="navigation-button"><a href="/add-todo">Add Todo</a></button>
+    <% } %>
+    <section class="login-signup-btn">
+      <button class="navigation-button login-btn"><a href="/login">Login</a></button>
+      <button class="navigation-button signup-btn"><a href="/signup">Sign Up</a></button>
+    </section>
+  </header>

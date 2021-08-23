@@ -47,8 +47,9 @@ exports.postTodo = (req, res, next) => {
 
 
 exports.editTodo = (req,res,next) => {
-  const todoId = req.params.todoId
+  const todoId = req.params.todoId;
   Todo.findById(todoId).then(todo => {
+    console.log(todo)
     res.render('todo/edit-todo', {
       todo: todo
     })

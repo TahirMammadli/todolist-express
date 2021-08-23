@@ -1,0 +1,11 @@
+<%- include('../includes/head.ejs') %>
+<form action="/new-password" method="POST">
+    <label for="">New password</label>
+    <input type="text" name="password">
+    <label for="">Repeat the new password</label>
+    <input type="text" name="newPassword">
+    <button type="submit">Update Password</button>
+    <input  type="hidden" type="text" value="<%=user._id%>" name="userId">
+</form>
+  </head>
+  <body>

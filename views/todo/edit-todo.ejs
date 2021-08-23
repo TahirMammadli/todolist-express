@@ -1,25 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=`, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="general.css">
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/add-todo.css">
 
-    <link rel="stylesheet" href="add-todo.css" />
-    <title>Document</title>
+
   </head>
   <body>
-    <header class="main-header">
-      <h1 class="logo"><a href="/">Todo List</a></h1>
-      <h2 class="add-todo"><a href="/edit-todo">Add Todo</a></h2>
-    </header>
+    <%- include('../includes/nav.ejs') %>
+<h1><%= todo._id %></h1>
     <main class="main-add-todo">
       <section class="form">
         <form class="add-todo__form" action="/edit-todo/<%= todo._id %>" method="POST">

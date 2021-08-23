@@ -85,3 +85,13 @@
     color: darkviolet;
   }
   
+
+  .login-btn{
+    display: inline;
+
+    margin: 0 30px;
+  }
+
+  .forgot-password-btn{
+    display: inline;
+  }

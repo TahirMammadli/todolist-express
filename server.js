@@ -1,18 +1,39 @@
 const express = require("express");
 const app = express();
+require('dotenv').config({path: __dirname + '/.env'})
 const path = require("path");
 const bodyParser = require("body-parser");
 const todoRoutes = require("./routes/todo");
 const authRoutes = require("./routes/auth")
 const mongoose = require("mongoose");
-const { MONGODB_URI } = require("./config");
-const session = 
+const session = require('express-session')
+const MongDBStore = require('connect-mongodb-session')(session)
+const MONGODB_URI = process.env['MONGODB_URI'];
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public/css")));
 
 app.set("view engine", "ejs");
 app.set("views", "views");
+
+const store = new MongDBStore({
+  uri: MONGODB_URI,
+  collection: 'sessions'
+})
+
+app.use(session({
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: false,
+  store: store
+
+}))
+
+app.use((req,res,next) => {
+  res.locals.isLoggedIn = req.session.isLoggedIn
+  next()
+})
 
 app.use(todoRoutes);
 app.use(authRoutes)

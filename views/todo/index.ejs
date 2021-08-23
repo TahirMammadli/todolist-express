@@ -1,29 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="general.css" />
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="main.css">
+<link rel="stylesheet" href="general.css">
 
-    <link rel="stylesheet" href="main.css" />
-    <title>Todo List</title>
   </head>
   <body>
-    <header class="main-header">
-      <h1 class="logo"><a href="/">Todo List</a></h1>
-      <button class="navigation-button"><a href="/add-todo">Add Todo</a></button>
-      <section class="login-signup-btn">
-        <button class="navigation-button login-btn"><a href="/login">Login</a></button>
-        <button class="navigation-button signup-btn"><a href="/signup">Sign Up</a></button>
-      </section>
-    </header>
+    <%- include('../includes/nav.ejs') %>
     <main class="main">
       <section class="pagination">
           <% if(currentPage !== 1) { %>
@@ -50,7 +31,7 @@
           <li class="all-todos__todo-body"><%= todo.body %></li>  
         </div>
           <div class="edit-delete-div">
-            <button class="button edit-btn" style="width: 80px;"><a style="color: white;" href="/edit-todo/<%= todo._id %>" >Edit</a></button>    
+            <a href="/edit-todo/<%= todo._id %>">Edit</a>    
             <form action="/delete/<%= todo._id %>" method="POST" class="delete-btn">
               <button type="submit delete-btn" class="button" style="width: 80px;">Delete</button>
             </form>

@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const todoController = require('../controller/todo');
+const isAuth = require('../middleware/isAuth')
 
 router.get("/", todoController.getTodos)
 
-router.get("/add-todo", todoController.getAddTodo)
+router.get("/add-todo", isAuth.isAuth, todoController.getAddTodo)
 
 router.post("/add-todo", todoController.postTodo)
 
