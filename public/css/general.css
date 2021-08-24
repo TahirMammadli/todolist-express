@@ -1,3 +1,7 @@
+*{
+  margin: 0;
+  padding: 0;
+}
 body{
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -28,12 +32,14 @@ body{
 
 
 
+
 .button:hover {
   background-color: rgb(187, 2, 187);
   color: white;
 }
 
 .navigation-button {
+  padding: 10px;
   text-align: center;
   display: inline-block;
   color: rgb(184, 0, 159);
@@ -42,9 +48,7 @@ body{
   font-size: 28px;
 }
 
-.navigation-button a{
-  padding: 5px;
-}
+
 
 .navigation-button a:hover {
   text-decoration: none;
@@ -53,9 +57,13 @@ body{
   border-radius: 5px;
 }
 
-a {
-  text-decoration: none;
+.login-signup-btn {
+  position: fixed;
+  top: 10px;
+  right: 30px;
 }
+
+
 
 
 input {
@@ -105,4 +113,15 @@ input:focus {
   margin-right: auto;
   font-size: 20px;
   border: 1px solid green;
+}
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:active {
+  color: darkviolet;
 }

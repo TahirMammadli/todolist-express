@@ -1,20 +1,4 @@
-.main-header {
-  margin-top: 30px;
-  text-align: center;
-}
-.logo {
-  text-align: center;
-  display: inline;
-  margin: 0 30px;
-  color: darkmagenta;
-}
-
-.add-todo {
-  text-align: center;
-  display: inline;
-  margin: 0 30px;
-  color: rgb(184, 0, 159);
-}
+ 
 
 input {
   border: 3px solid darkmagenta;
@@ -79,11 +63,7 @@ a:active {
 
 
 
-.login-signup-btn {
-  position: fixed;
-  top: 10px;
-  right: 30px;
-}
+
 
 .login-btn {
   display: inline-block;
