@@ -1,0 +1,146 @@
+.main-header {
+  margin-top: 30px;
+  text-align: center;
+}
+.logo {
+  text-align: center;
+  display: inline;
+  margin: 0 30px;
+  color: darkmagenta;
+}
+
+.add-todo {
+  text-align: center;
+  display: inline;
+  margin: 0 30px;
+  color: rgb(184, 0, 159);
+}
+
+input {
+  border: 3px solid darkmagenta;
+  border-radius: 5px;
+  padding: 10px;
+  width: 400px;
+  margin: 20px 0;
+  font-size: 20px;
+}
+
+input:focus {
+  outline: none;
+  border-color: rgb(171, 3, 255);
+}
+
+.add-todo__btn {
+  padding: 10px;
+  border-radius: 5px;
+  width: 150px;
+  margin: 20px 0;
+  border: none;
+  background-color: darkmagenta;
+  color: white;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.add-todo__btn-div {
+  text-align: right;
+}
+
+.add-todo__btn:hover {
+  background-color: rgb(187, 2, 187);
+  color: white;
+}
+
+.add-todo a {
+  padding: 10px;
+}
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+.add-todo a:hover {
+  text-decoration: none;
+  background-color: darkmagenta;
+  color: white;
+  border-radius: 5px;
+}
+
+a:active {
+  color: darkviolet;
+}
+
+.login-btn {
+  display: inline;
+  
+}
+
+
+
+.login-signup-btn {
+  position: fixed;
+  top: 10px;
+  right: 30px;
+}
+
+.login-btn {
+  display: inline-block;
+  margin-right: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.signup-btn {
+  display: inline-block;
+}
+.login-btn a {
+  color: darkmagenta;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.signup-btn a {
+  color: darkmagenta;
+
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.login-btn a:hover,
+.login-btn a:active {
+  background-color: darkmagenta;
+  color: white;
+}
+
+.signup-btn a:hover,
+.signup-btn a:active {
+  background-color: darkmagenta;
+  color: white;
+}
+
+.form {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  width: 25%;
+}
+
+.forgot-password-btn {
+  display: inline;
+}
+
+textarea {
+  padding: 10px;
+  width: 400px;
+  border: 3px solid darkmagenta;
+  border-radius: 5px;
+  margin: 20px 0;
+  font-size: 20px;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: rgb(171, 3, 255);
+}

@@ -17,8 +17,9 @@ body{
 .button {
   padding: 10px;
   border-radius: 5px;
-  width: 150px;
+  width: auto;
   margin: 20px 0;
+  font-size: 16px;
   border: none;
   background-color: darkmagenta;
   color: white;
@@ -73,16 +74,35 @@ input:focus {
 }
 
 
-.form {
-  margin-top: 60px;
+
+
+
+
+
+.user-message--error{
+  background-color: rgba(240, 72, 72, 0.486);
+  padding: 10px;
+  color: red;
+  border-radius: 10px;
+  text-align: center;
+  width: 30%;
+  margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
-  width: 25%;
+  font-size: 20px;
+  border: 1px red solid;
 }
 
-
-
-.form {
-  text-align: left;
+.user-message--success{
+  background-color: rgb(0, 134, 11);
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  width: 30%;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+  border: 1px solid green;
 }
-

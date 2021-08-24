@@ -34,11 +34,11 @@ router.post(
 );
 
 
-router.get('/reset-password', authController.resetPassword)
+router.get('/reset-email', authController.resetEmail)
 
-router.post('/reset-password', authController.postResetPassword)
+router.post('/reset-email', authController.postResetEmail)
 
-router.get('/reset/:token', authController.resetPage)
+router.get('/reset-password/:token', authController.resetPage)
 
 router.post('/new-password', authController.postReset)
 

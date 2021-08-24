@@ -1,5 +1,5 @@
 <%- include('../includes/head.ejs') %>
-<link rel="stylesheet" href="login.css">
+<link rel="stylesheet" href="form.css">
 
   </head>
   <body>
@@ -7,16 +7,34 @@
 
    
     <main>
+      <% if(errorMessage) {%>
+        <div class="user-message user-message--error">
+          <%= errorMessage %>
+        </div>
+      <% } %>
+      <% if(successMessage) {%>
+        <div class="user-message user-message--error">
+          <%= successMessage %>
+        </div>
+      <% } %>
         <form action="/login" method="POST" class="form">
+          <div>
             <label for="email">Email: </label>
+          </div>
+          <div>
             <input type="text" name="email" placeholder="Enter your email address">
+          </div>
+          <div>
             <label for="password">Password: </label>
+          </div>
+          <div>
             <input type="text" name="password" placeholder="Enter your password">
-          
+          </div>
+          <div>
             <button type="submit" class="button login-btn">Login</button>
-          
+            <a href="/reset-email" class="button forgot-password-btn">Forgot Password</a>
+          </div>
         </form>
-        <a href="/reset-password" class="button forgot-password-btn">Forgot Password</a>
 
     </main>
     </body>

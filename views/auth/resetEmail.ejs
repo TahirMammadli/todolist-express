@@ -4,7 +4,12 @@
   <body>
     <%- include('../includes/nav.ejs') %>
 
-        <form action="/reset-password" method="POST">
+    <% if(errorMessage) {%>
+      <div class="user-message user-message--error" style="display: block;">
+        <%= errorMessage %>
+      </div>
+    <% } %>
+        <form action="/reset-email" method="POST">
             <label for="Email: "></label>
         <input name="email" type="text" placeholder="Enter the email address associated with this account.">
         <button type="submit">Send</button>

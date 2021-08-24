@@ -5,6 +5,16 @@
   </head>
   <body>
     <%- include('../includes/nav.ejs') %>
+    <% if(deleteSuccessMessage) { %>
+      <div class="user-message--success">
+        <%= deleteSuccessMessage %>
+      </div>
+    <% } %>
+    <% if(addTodoSuccessMessage) { %>
+      <div class="user-message--success">
+        <%= addTodoSuccessMessage %>
+      </div>
+    <% } %>
     <main class="main">
       <section class="pagination">
           <% if(currentPage !== 1) { %>
@@ -31,9 +41,9 @@
           <li class="all-todos__todo-body"><%= todo.body %></li>  
         </div>
           <div class="edit-delete-div">
-            <a href="/edit-todo/<%= todo._id %>">Edit</a>    
-            <form action="/delete/<%= todo._id %>" method="POST" class="delete-btn">
-              <button type="submit delete-btn" class="button" style="width: 80px;">Delete</button>
+            <a href="/edit-todo/<%= todo._id %>" class="button">Edit</a>    
+            <form action="/delete/<%= todo._id %>" method="POST" class="delete-form">
+              <button type="submit" class="button">Delete</button>
             </form>
           </div>   
         </ul>

@@ -9,6 +9,7 @@ const mongoose = require("mongoose");
 const session = require('express-session')
 const MongDBStore = require('connect-mongodb-session')(session)
 const MONGODB_URI = process.env['MONGODB_URI'];
+const flash = require('connect-flash')
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -29,6 +30,9 @@ app.use(session({
   store: store
 
 }))
+
+
+app.use(flash())
 
 app.use((req,res,next) => {
   res.locals.isLoggedIn = req.session.isLoggedIn

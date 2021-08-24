@@ -4,7 +4,18 @@ const TODO_PER_PAGE = 3;
 
 exports.getTodos = (req, res, next) => {
   const page = +req.query.page || 1;
-
+  let deleteSuccessMessage = req.flash("deleteSuccess");
+  let addTodoSuccessMessage = req.flash("addTodoSuccess")
+  if (deleteSuccessMessage.length > 0) {
+    deleteSuccessMessage = deleteSuccessMessage[0];
+  } else {
+    deleteSuccessMessage = null;
+  }
+  if (addTodoSuccessMessage.length > 0) {
+    addTodoSuccessMessage = addTodoSuccessMessage[0];
+  } else {
+    addTodoSuccessMessage = null;
+  }
   Todo.countDocuments().then((numOfTodos) => {
     totalTodos = numOfTodos;
     return Todo.find()
@@ -13,13 +24,15 @@ exports.getTodos = (req, res, next) => {
       .then((todos) => {
         res.render("todo/index", {
           todos: todos,
+          deleteSuccessMessage: deleteSuccessMessage,
+          addTodoSuccessMessage: addTodoSuccessMessage,
           currentPage: page,
           hasNextPage: TODO_PER_PAGE * page < totalTodos,
           hasPreviousPage: page > 1,
           nextPage: page + 1,
           previousPage: page - 1,
           lastPage: Math.ceil(totalTodos / TODO_PER_PAGE),
-          hasLastPage: Math.ceil(totalTodos / TODO_PER_PAGE) > 0
+          hasLastPage: Math.ceil(totalTodos / TODO_PER_PAGE) > 0,
         });
       });
   });
@@ -40,43 +53,49 @@ exports.postTodo = (req, res, next) => {
 
   todo
     .save()
-    .then((result) => console.log("added to db"))
+    .then(() => {})
     .catch((err) => console.log(err));
+  req.flash("addTodoSuccess", "Todo added successfully!");
+
   res.redirect("/");
 };
 
-
-exports.editTodo = (req,res,next) => {
+exports.editTodo = (req, res, next) => {
   const todoId = req.params.todoId;
-  Todo.findById(todoId).then(todo => {
-    console.log(todo)
-    res.render('todo/edit-todo', {
-      todo: todo
+  Todo.findById(todoId)
+    .then((todo) => {
+      console.log(todo);
+      res.render("todo/edit-todo", {
+        todo: todo,
+      });
     })
-  })
-  .catch(err => console.log(err))
-  
-}
+    .catch((err) => console.log(err));
+};
 
-exports.postEditTodo = (req,res,next) => {
-  const todoId = req.params.todoId
-  const updatedTitle = req.body.title 
-  const updatedBody = req.body.body 
-  
-  Todo.findById(todoId).then(todo => {
-    todo.title = updatedTitle
-    todo.body = updatedBody
+exports.postEditTodo = (req, res, next) => {
+  const todoId = req.params.todoId;
+  const updatedTitle = req.body.title;
+  const updatedBody = req.body.body;
 
-    return todo.save().then(result => {
-      res.redirect('/')
+  Todo.findById(todoId).then((todo) => {
+    todo.title = updatedTitle;
+    todo.body = updatedBody;
+
+    return todo
+      .save()
+      .then((result) => {
+        res.redirect("/");
+      })
+      .catch((err) => console.log(err));
+  });
+};
+
+exports.deleteTodo = (req, res, next) => {
+  const todoId = req.params.todoId;
+  Todo.findByIdAndRemove(todoId)
+    .then((result) => {
+      req.flash("deleteSuccess", "Todo deleted successfully!");
+      res.redirect("/");
     })
-    .catch(err => console.log(err))
-  })
-}
-
-exports.deleteTodo = (req,res,next) => {
-  const todoId = req.params.todoId
-  Todo.findByIdAndRemove(todoId).then(result => {
-    res.redirect('/')
-  }).catch(err => console.log(err))
-}
+    .catch((err) => console.log(err));
+};
